@@ -15,6 +15,7 @@ import UpdatePlugin from './PluginsTriton/UpdatePlugin';
 import UpdateInnerPlugin from './PluginsTriton/InnerPlugin/UpdateInnerPlugin';
 import CreateInnerPlugin from './PluginsTriton/InnerPlugin/CreateInnerPlugin';
 import CreatePlugin from './PluginsTriton/CreatePlugin';
+import NotFound from './NotFound/NotFound';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,6 +26,7 @@ root.render(
         <Route path="feedback" element={<FeedBackMain />} />
         <Route path="/choising" element={<ChoisingMain />} />
         <Route path="/choising/:id" element={<UpdateChoising />} />
+        <Route path="*" element={<NotFound />} />
         <Route>
           <Route path="/faq" element={<FaqMain />} />
           <Route path="/faq/:id" element={<UpdateFaq />} />
