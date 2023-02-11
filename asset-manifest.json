@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/TritonFrontAdmin/static/css/main.2ffb6d06.css",
+    "main.js": "/TritonFrontAdmin/static/js/main.c52b41af.js",
+    "index.html": "/TritonFrontAdmin/index.html",
+    "main.2ffb6d06.css.map": "/TritonFrontAdmin/static/css/main.2ffb6d06.css.map",
+    "main.c52b41af.js.map": "/TritonFrontAdmin/static/js/main.c52b41af.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2ffb6d06.css",
+    "static/js/main.c52b41af.js"
+  ]
+}
