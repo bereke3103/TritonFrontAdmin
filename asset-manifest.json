@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/TritonFrontAdmin/static/css/main.2ffb6d06.css",
-    "main.js": "/TritonFrontAdmin/static/js/main.c52b41af.js",
+    "main.js": "/TritonFrontAdmin/static/js/main.5b22906e.js",
     "index.html": "/TritonFrontAdmin/index.html",
     "main.2ffb6d06.css.map": "/TritonFrontAdmin/static/css/main.2ffb6d06.css.map",
-    "main.c52b41af.js.map": "/TritonFrontAdmin/static/js/main.c52b41af.js.map"
+    "main.5b22906e.js.map": "/TritonFrontAdmin/static/js/main.5b22906e.js.map"
   },
   "entrypoints": [
     "static/css/main.2ffb6d06.css",
-    "static/js/main.c52b41af.js"
+    "static/js/main.5b22906e.js"
   ]
 }
