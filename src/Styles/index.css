@@ -33,72 +33,91 @@ li {
 .header__items {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 71px;
 }
 
 .header__links {
   color: white;
   font-size: 22px;
 }
+
+.header__block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo__img {
+  width: 164px;
+  height: 52px;
+}
+
+.logo__img > img {
+  width: 100%;
+  height: 100%;
+}
+
 /* header end */
 
-/* feedbacks start */
-
-/* .table {
+/* choising start */
+.choising__block {
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
   align-items: center;
+  justify-content: center;
+  gap: 50px;
 }
 
-.thead {
-  background: #131c39c7;
-  padding: 19px;
-  border-radius: 6px;
+.choising__img {
+  width: 872px;
+  height: 491px;
 }
-.tr {
+
+.choising__img > img {
+  width: 100%;
+  height: 100%;
+}
+/* choising end */
+
+/* feedback start */
+.feedback__img {
+  width: 736px;
+  height: 320px;
+}
+.feedback__img > img {
+  width: 100%;
+  height: 110%;
+}
+
+.feedback__block {
   display: flex;
-  flex-direction: row;
-  gap: 70px;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 60px;
 }
+/* feedback end */
 
-.th {
-  color: rgb(0, 0, 0);
-  padding: 5px 15px;
-  padding-bottom: 14px;
-  border-right: 2px solid;
-}
-
-.tbody {
-  padding: 20px;
-  background: red;
-  border-radius: 5px;
-  background: white;
-}
-
-.tr {
-  align-items: center;
+/* faq start */
+.faq__block {
   display: flex;
-  flex-direction: row;
-  gap: 82px;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
-  border-right: 2px solid;
-  max-width: 580px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 27px;
+  margin-top: 30px;
 }
 
-.td {
-  border-right: 2px solid;
-  padding: 15px;
-} */
-
-.section__feedback {
-  margin-top: 140px;
-}
-.choising__section {
-  margin-top: 140px;
+.faq__img {
+  width: 1436px;
+  height: 333px;
 }
 
-/* feedbacks end */
+.faq__img > img {
+  width: 86%;
+  height: 105%;
+}
+
+/* faq end */

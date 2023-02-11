@@ -11,6 +11,7 @@ const UpdateInnerPlugin = (props) => {
 
   const [moreInfo, setMoreInfo] = useState('');
   const [pluginModelId, setPluginModelId] = useState('');
+  const [tab, setTab] = useState('');
   //   console.log(pluginModelId);
 
   const getInnerPluginById = async () => {
@@ -22,6 +23,7 @@ const UpdateInnerPlugin = (props) => {
       .then((response) => response.json())
       .then((result) => {
         setMoreInfo(result.itemInformation);
+        setTab(result.tab);
       });
   };
 
@@ -35,6 +37,7 @@ const UpdateInnerPlugin = (props) => {
     const url = `https://localhost:7183/updatePluginInformations/${params.id}`;
 
     const updatePluginMoreInfo = {
+      tab,
       itemInformations: moreInfo,
     };
 
@@ -57,6 +60,15 @@ const UpdateInnerPlugin = (props) => {
     <>
       <div className="container">
         <Form onSubmit={updateInnerPluginById} style={{ marginTop: 100 }}>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label>Таб</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Таб"
+              value={tab}
+              onChange={(e) => setTab(e.target.value)}
+            />
+          </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>Подробная информация</Form.Label>
             <Form.Control
