@@ -25,7 +25,7 @@ const FaqMain = () => {
       .then((result) => {
         setFaq(result);
       });
-  }, []);
+  }, [faq]);
   return (
     <section className="faq__section">
       <div className="container">

@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 
 const CreateInnerPlugin = () => {
   const [moreInfo, setMoreInfo] = useState('');
+  const [tab, setTab] = useState('');
   const navigate = useNavigate();
   const params = useParams();
   console.log(params);
@@ -12,6 +13,7 @@ const CreateInnerPlugin = () => {
     e.preventDefault();
 
     const newMoreInfo = {
+      tab,
       pluginId: params.id,
       itemInformations: moreInfo,
     };
@@ -34,6 +36,15 @@ const CreateInnerPlugin = () => {
   return (
     <div className="container">
       <Form onSubmit={createMoreInfo} style={{ marginTop: 100 }}>
+        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+          <Form.Label>Таб</Form.Label>
+          <Form.Control
+            type="number"
+            placeholder="Таб"
+            value={tab}
+            onChange={(e) => setTab(e.target.value)}
+          />
+        </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>Создать "Подробная информация"</Form.Label>
           <Form.Control

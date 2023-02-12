@@ -30,7 +30,7 @@ const UpdatePlugin = () => {
       .then((result) => {
         setInnferPlugin(result);
       });
-  }, []);
+  }, [innerPlugin]);
 
   //   const itemPlugin = innerPlugin.find((i) => i.pluginModelId == params.id);
   //   console.log(itemPlugin);

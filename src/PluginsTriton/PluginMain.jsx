@@ -25,7 +25,7 @@ const PluginMain = () => {
       .then((result) => {
         setPlugins(result);
       });
-  }, []);
+  }, [plugins]);
 
   return (
     <section style={{ marginTop: 140 }} className="plugins__section">
