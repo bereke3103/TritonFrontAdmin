@@ -1,7 +1,15 @@
-import { NavLink, Link, Outlet } from 'react-router-dom';
+import { NavLink, Link, Outlet, useNavigate } from 'react-router-dom';
 import logo from '../img/logo.svg';
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const logOut = () => {
+    localStorage.removeItem('token');
+
+    navigate('/login');
+  };
+
   return (
     <>
       <section className="section__header">
@@ -31,6 +39,11 @@ const Header = () => {
                   <Link to="/plugins" className="header__links">
                     Плагины
                   </Link>
+                </li>
+                <li>
+                  <button onClick={logOut} className="btn__close">
+                    Выйти
+                  </button>
                 </li>
               </ul>
             </header>
