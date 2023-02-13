@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/TritonFrontAdmin/static/css/main.2ce85196.css",
-    "main.js": "/TritonFrontAdmin/static/js/main.e695d953.js",
+    "main.js": "/TritonFrontAdmin/static/js/main.32950ec6.js",
     "static/media/choising.png": "/TritonFrontAdmin/static/media/choising.162bad194e15c83343da.png",
     "static/media/feedback.png": "/TritonFrontAdmin/static/media/feedback.b361cd36ae0bdffe5125.png",
     "static/media/faq.png": "/TritonFrontAdmin/static/media/faq.f6901fdba7d882664652.png",
     "static/media/logo.svg": "/TritonFrontAdmin/static/media/logo.0515f24ebda0aa1016064f9293d7021e.svg",
     "index.html": "/TritonFrontAdmin/index.html",
     "main.2ce85196.css.map": "/TritonFrontAdmin/static/css/main.2ce85196.css.map",
-    "main.e695d953.js.map": "/TritonFrontAdmin/static/js/main.e695d953.js.map"
+    "main.32950ec6.js.map": "/TritonFrontAdmin/static/js/main.32950ec6.js.map"
   },
   "entrypoints": [
     "static/css/main.2ce85196.css",
-    "static/js/main.e695d953.js"
+    "static/js/main.32950ec6.js"
   ]
 }
