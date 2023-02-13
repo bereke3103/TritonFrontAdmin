@@ -23,26 +23,26 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route element={<PrivateRouter />}>
-        <Route path="/" element={<Header />}>
-          <Route index element={<App />} />
-          <Route path="feedback" element={<FeedBackMain />} />
-          <Route path="/choising" element={<ChoisingMain />} />
-          <Route path="/choising/:id" element={<UpdateChoising />} />
-          <Route path="*" element={<NotFound />} />
-          <Route>
-            <Route path="/faq" element={<FaqMain />} />
-            <Route path="/faq/:id" element={<UpdateFaq />} />
-            <Route path="/faq/create" element={<CreateFaq />} />
-          </Route>
-          <Route>
-            <Route path="/plugins" element={<PluginMain />} />
-            <Route path="/plugins/create" element={<CreatePlugin />} />
-            <Route path="/plugins/:id" element={<UpdatePlugin />} />
-            <Route path="/plugins/:id/:id" element={<UpdateInnerPlugin />} />
-            <Route path="/plugins/:id/create" element={<CreateInnerPlugin />} />
-          </Route>
+      {/* <Route element={<PrivateRouter />}> */}
+      <Route path="/" element={<Header />}>
+        <Route index element={<App />} />
+        <Route path="feedback" element={<FeedBackMain />} />
+        <Route path="/choising" element={<ChoisingMain />} />
+        <Route path="/choising/:id" element={<UpdateChoising />} />
+        <Route path="*" element={<NotFound />} />
+        <Route>
+          <Route path="/faq" element={<FaqMain />} />
+          <Route path="/faq/:id" element={<UpdateFaq />} />
+          <Route path="/faq/create" element={<CreateFaq />} />
         </Route>
+        <Route>
+          <Route path="/plugins" element={<PluginMain />} />
+          <Route path="/plugins/create" element={<CreatePlugin />} />
+          <Route path="/plugins/:id" element={<UpdatePlugin />} />
+          <Route path="/plugins/:id/:id" element={<UpdateInnerPlugin />} />
+          <Route path="/plugins/:id/create" element={<CreateInnerPlugin />} />
+        </Route>
+        {/* </Route> */}
       </Route>
       <Route path="/login" element={<Login />} />
     </Routes>
