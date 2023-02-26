@@ -7,7 +7,11 @@ const UpdateChoising = () => {
   const params = useParams();
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
+  const [titleKZ, setTitleKZ] = useState('');
+  const [titleENG, setTitleENG] = useState('');
   const [text, setText] = useState('');
+  const [textKZ, setTextKZ] = useState('');
+  const [textENG, setTextENG] = useState('');
 
   const getChoisingById = async () => {
     const url = `https://localhost:7183/getChoising/${params.id}`;
@@ -18,7 +22,11 @@ const UpdateChoising = () => {
       .then((response) => response.json())
       .then((result) => {
         setTitle(result.title);
+        setTitleKZ(result.titleKZ);
+        setTitleENG(result.titleENG);
         setText(result.text);
+        setTextKZ(result.textKZ);
+        setTextENG(result.textENG);
       });
   };
 
@@ -28,7 +36,11 @@ const UpdateChoising = () => {
 
     const updateChoise = {
       title,
+      titleKZ,
+      titleENG,
       text,
+      textKZ,
+      textENG,
     };
 
     await fetch(url, {
@@ -64,6 +76,25 @@ const UpdateChoising = () => {
                 onChange={(e) => setTitle(e.target.value)}
               />
             </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Заголовок(КАЗАХСКИЙ)</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Заголовок(КАЗАХСКИЙ)"
+                value={titleKZ}
+                onChange={(e) => setTitleKZ(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Заголовок(АНГЛИЙСКИЙ)</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Заголовок(АНГЛИЙСКИЙ)"
+                value={titleENG}
+                onChange={(e) => setTitleENG(e.target.value)}
+              />
+            </Form.Group>
+            <hr />
             <Form.Group
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
@@ -74,6 +105,30 @@ const UpdateChoising = () => {
                 rows={3}
                 value={text}
                 onChange={(e) => setText(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Form.Label>Описание(КАЗАХСКИЙ)</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                value={textKZ}
+                onChange={(e) => setTextKZ(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Form.Label>Описание(АНГЛИЙСКИЙ)</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                value={textENG}
+                onChange={(e) => setTextENG(e.target.value)}
               />
             </Form.Group>
             <Button type="submit" variant="primary">

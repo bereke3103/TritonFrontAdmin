@@ -10,6 +10,8 @@ const UpdateInnerPlugin = (props) => {
   //   console.log(params);
 
   const [moreInfo, setMoreInfo] = useState('');
+  const [moreInfoKZ, setMoreInfoKZ] = useState('');
+  const [moreInfoENG, setMoreInfoENG] = useState('');
   const [pluginModelId, setPluginModelId] = useState('');
   const [tab, setTab] = useState('');
   //   console.log(pluginModelId);
@@ -23,7 +25,10 @@ const UpdateInnerPlugin = (props) => {
       .then((response) => response.json())
       .then((result) => {
         setMoreInfo(result.itemInformation);
+        setMoreInfoKZ(result.itemInformationKZ);
+        setMoreInfoENG(result.itemInformationENG);
         setTab(result.tab);
+        console.log(result);
       });
   };
 
@@ -39,6 +44,8 @@ const UpdateInnerPlugin = (props) => {
     const updatePluginMoreInfo = {
       tab,
       itemInformations: moreInfo,
+      itemInformationsKZ: moreInfoKZ,
+      itemInformationsENG: moreInfoENG,
     };
 
     fetch(url, {
@@ -76,6 +83,24 @@ const UpdateInnerPlugin = (props) => {
               rows={3}
               value={moreInfo}
               onChange={(e) => setMoreInfo(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+            <Form.Label>Подробная информация(КАЗАХСКИЙ)</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              value={moreInfoKZ}
+              onChange={(e) => setMoreInfoKZ(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+            <Form.Label>Подробная информация(АНГЛИЙСКИЙ)</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              value={moreInfoENG}
+              onChange={(e) => setMoreInfoENG(e.target.value)}
             />
           </Form.Group>
           <Button type="submit" variant="primary">

@@ -34,7 +34,6 @@ const PluginMain = () => {
         <Button
           onClick={() => navigate('/plugins/create')}
           style={{
-            //   marginLeft: '83%',
             float: 'right',
             marginBottom: 34,
           }}

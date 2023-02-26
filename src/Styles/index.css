@@ -144,3 +144,22 @@ li {
 }
 
 /* login page end */
+
+/*  */
+.pre__loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(4px);
+  z-index: 101;
+}
+
+.pre__loader__container {
+  position: absolute;
+  top: 37%;
+  left: 37%;
+  font-size: 75px;
+}
+/*  */

@@ -36,8 +36,18 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
+                  <Link to="/clients" className="header__links">
+                    Наши клиенты
+                  </Link>
+                </li>
+                <li>
                   <Link to="/plugins" className="header__links">
                     Плагины
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/cardOfChoising" className="header__links">
+                    Карточки
                   </Link>
                 </li>
                 <li>
