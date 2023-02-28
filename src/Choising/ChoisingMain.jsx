@@ -10,20 +10,10 @@ import {
 import React, { useEffect, useState } from 'react';
 import Choising from './Choising';
 import choisingPic from '../img/choising.png';
+import { useGetChoisingQuery } from '../redux/choising.Api';
 
 const ChoisingMain = () => {
-  const [choisings, setChoisings] = useState([]);
-  useEffect(() => {
-    const url = 'https://localhost:7183/getChoising';
-
-    fetch(url, {
-      method: 'GET',
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        setChoisings(result);
-      });
-  }, []);
+  const { data: choisings = [] } = useGetChoisingQuery();
 
   return (
     <section className="choising__section">

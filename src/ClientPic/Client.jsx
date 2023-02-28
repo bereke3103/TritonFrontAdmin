@@ -2,22 +2,14 @@ import { TableCell, TableRow } from '@mui/material';
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { useDeleteClientMutation } from '../redux/client.Api';
 
 const Client = ({ id, clientName }) => {
+  const [deleteClient] = useDeleteClientMutation();
   const navigate = useNavigate();
-  //   console.log(props);
 
-  const deleteClientByID = () => {
-    const url = `https://localhost:7183/deleteClient/${id}`;
-
-    fetch(url, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result));
+  const deleteClientByID = async (id) => {
+    await deleteClient(id);
   };
   return (
     <TableRow>
@@ -38,7 +30,7 @@ const Client = ({ id, clientName }) => {
         <Button
           onClick={() => {
             if (window.confirm(`Вы действительно хотите удалить картинку?`))
-              deleteClientByID();
+              deleteClientByID(id);
           }}
           style={{ marginLeft: 20 }}
           variant="danger"

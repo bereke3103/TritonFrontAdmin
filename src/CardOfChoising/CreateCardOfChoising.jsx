@@ -2,14 +2,16 @@
 import { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { useInitialState } from '../hooks/useInitialState';
 
 const CreateCardOfChoising = () => {
-  const [title, seTitle] = useState('');
-  const [titleKZ, setTitleKZ] = useState('');
-  const [titleENG, setTitleENG] = useState('');
-  const [description, setDescription] = useState('');
-  const [descriptionKZ, setDescriptionKZ] = useState('');
-  const [descriptionENG, setDescriptionENG] = useState('');
+  const title = useInitialState('');
+  const titleKZ = useInitialState('');
+  const titleENG = useInitialState('');
+  const description = useInitialState('');
+  const descriptionKZ = useInitialState('');
+  const descriptionENG = useInitialState('');
+
   const [imageFile, setImageFile] = useState('');
   const [nameFile, setNameFile] = useState('');
 
@@ -26,12 +28,12 @@ const CreateCardOfChoising = () => {
     e.preventDefault();
     const formData = new FormData();
 
-    formData.append('title', title);
-    formData.append('titleKZ', titleKZ);
-    formData.append('titleENG', titleENG);
-    formData.append('description', description);
-    formData.append('descriptionKZ', descriptionKZ);
-    formData.append('descriptionENG', descriptionENG);
+    formData.append('title', title.value);
+    formData.append('titleKZ', titleKZ.value);
+    formData.append('titleENG', titleENG.value);
+    formData.append('description', description.value);
+    formData.append('descriptionKZ', descriptionKZ.value);
+    formData.append('descriptionENG', descriptionENG.value);
     formData.append('imageFile', imageFile);
     formData.append('nameFile', nameFile);
 
@@ -80,8 +82,8 @@ const CreateCardOfChoising = () => {
             <Form.Control
               type="text"
               placeholder="название..."
-              value={title}
-              onChange={(e) => seTitle(e.target.value)}
+              value={title.value}
+              onChange={title.onChange}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -89,8 +91,8 @@ const CreateCardOfChoising = () => {
             <Form.Control
               type="text"
               placeholder="название...(казахский)"
-              value={titleKZ}
-              onChange={(e) => setTitleKZ(e.target.value)}
+              value={titleKZ.value}
+              onChange={titleKZ.onChange}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -98,8 +100,8 @@ const CreateCardOfChoising = () => {
             <Form.Control
               type="text"
               placeholder="название...(английский)"
-              value={titleENG}
-              onChange={(e) => setTitleENG(e.target.value)}
+              value={titleENG.value}
+              onChange={titleENG.onChange}
             />
             <hr />
           </Form.Group>
@@ -108,8 +110,8 @@ const CreateCardOfChoising = () => {
             <Form.Control
               as="textarea"
               rows={3}
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              value={description.value}
+              onChange={description.onChange}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
@@ -117,8 +119,8 @@ const CreateCardOfChoising = () => {
             <Form.Control
               as="textarea"
               rows={3}
-              value={descriptionKZ}
-              onChange={(e) => setDescriptionKZ(e.target.value)}
+              value={descriptionKZ.value}
+              onChange={descriptionKZ.onChange}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
@@ -126,8 +128,8 @@ const CreateCardOfChoising = () => {
             <Form.Control
               as="textarea"
               rows={3}
-              value={descriptionENG}
-              onChange={(e) => setDescriptionENG(e.target.value)}
+              value={descriptionENG.value}
+              onChange={descriptionENG.onChange}
             />
           </Form.Group>
           <Button type="submit" variant="success">

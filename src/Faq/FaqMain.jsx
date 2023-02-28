@@ -11,21 +11,14 @@ import { Button, Table } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Faq from './Faq';
 import faqPic from '../img/faq.png';
+import { useGetFaqQuery } from '../redux/faq.Api';
 
 const FaqMain = () => {
   const navigate = useNavigate();
-  const [faq, setFaq] = useState([]);
-  useEffect(() => {
-    const url = 'https://localhost:7183/getFaq';
+  const { data: faqs = [] } = useGetFaqQuery();
 
-    fetch(url, {
-      method: 'GET',
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        setFaq(result);
-      });
-  }, [faq]);
+  console.log(faqs);
+
   return (
     <section className="faq__section">
       <div className="container">
@@ -57,7 +50,7 @@ const FaqMain = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {faq.map((f) => (
+                  {faqs.map((f) => (
                     <Faq {...f} key={f.id} />
                   ))}
                 </TableBody>

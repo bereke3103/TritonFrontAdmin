@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { useAddClientMutation } from '../redux/client.Api';
 
 const CreateClient = () => {
+  const [addClient] = useAddClientMutation();
   const [clientFile, setClientFile] = useState('');
   const [clientName, setClientName] = useState('');
   const navigate = useNavigate();
@@ -19,14 +21,7 @@ const CreateClient = () => {
     formData.append('clientName', clientName);
     formData.append('clientFile', clientFile);
 
-    const url = 'https://localhost:7183/createClient';
-
-    await fetch(url, {
-      method: 'POST',
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result));
+    addClient(formData);
 
     navigate('/clients');
   };

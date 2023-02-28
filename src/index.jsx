@@ -24,49 +24,55 @@ import UpdateClient from './ClientPic/UpdateClient';
 import UpdateCardOfChoising from './CardOfChoising/UpdateCardOfChoising';
 import CardOfChoisingMain from './CardOfChoising/CardOfChoisingMain';
 import CreateCardOfChoising from './CardOfChoising/CreateCardOfChoising';
-
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route element={<PrivateRouter />}>
-        <Route path="/" element={<Header />}>
-          <Route index element={<App />} />
-          <Route path="feedback" element={<FeedBackMain />} />
-          <Route path="/choising" element={<ChoisingMain />} />
-          <Route path="/choising/:id" element={<UpdateChoising />} />
-          <Route path="*" element={<NotFound />} />
-          <Route>
-            <Route path="/faq" element={<FaqMain />} />
-            <Route path="/faq/:id" element={<UpdateFaq />} />
-            <Route path="/faq/create" element={<CreateFaq />} />
-          </Route>
-          <Route>
-            <Route path="/plugins" element={<PluginMain />} />
-            <Route path="/plugins/create" element={<CreatePlugin />} />
-            <Route path="/plugins/:id" element={<UpdatePlugin />} />
-            <Route path="/plugins/:id/:id" element={<UpdateInnerPlugin />} />
-            <Route path="/plugins/:id/create" element={<CreateInnerPlugin />} />
-          </Route>
-          <Route>
-            <Route path="clients" element={<ClientMain />} />
-            <Route path="clients/create" element={<CreateClient />} />
-            <Route path="clients/:id" element={<UpdateClient />} />
-          </Route>
-          <Route>
-            <Route path="cardOfChoising" element={<CardOfChoisingMain />} />
-            <Route
-              path="cardOfChoising/create"
-              element={<CreateCardOfChoising />}
-            />
-            <Route
-              path="cardOfChoising/:id"
-              element={<UpdateCardOfChoising />}
-            />
+  <Provider store={store}>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<PrivateRouter />}>
+          <Route path="/" element={<Header />}>
+            <Route index element={<App />} />
+            <Route path="feedback" element={<FeedBackMain />} />
+            <Route path="/choising" element={<ChoisingMain />} />
+            <Route path="/choising/:id" element={<UpdateChoising />} />
+            <Route path="*" element={<NotFound />} />
+            <Route>
+              <Route path="/faq" element={<FaqMain />} />
+              <Route path="/faq/:id" element={<UpdateFaq />} />
+              <Route path="/faq/create" element={<CreateFaq />} />
+            </Route>
+            <Route>
+              <Route path="/plugins" element={<PluginMain />} />
+              <Route path="/plugins/create" element={<CreatePlugin />} />
+              <Route path="/plugins/:id" element={<UpdatePlugin />} />
+              <Route path="/plugins/:id/:id" element={<UpdateInnerPlugin />} />
+              <Route
+                path="/plugins/:id/create"
+                element={<CreateInnerPlugin />}
+              />
+            </Route>
+            <Route>
+              <Route path="clients" element={<ClientMain />} />
+              <Route path="clients/create" element={<CreateClient />} />
+              <Route path="clients/:id" element={<UpdateClient />} />
+            </Route>
+            <Route>
+              <Route path="cardOfChoising" element={<CardOfChoisingMain />} />
+              <Route
+                path="cardOfChoising/create"
+                element={<CreateCardOfChoising />}
+              />
+              <Route
+                path="cardOfChoising/:id"
+                element={<UpdateCardOfChoising />}
+              />
+            </Route>
           </Route>
         </Route>
-      </Route>
-      <Route path="/login" element={<Login />} />
-    </Routes>
-  </BrowserRouter>
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
+  </Provider>
 );

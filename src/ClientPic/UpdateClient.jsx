@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useUpdateClientMutation } from '../redux/client.Api';
 
 const UpdateClient = () => {
+  const [updateClient] = useUpdateClientMutation();
+  const [id, setId] = useState('');
   const [clientFile, setClientFile] = useState('');
   const [clientName, setClientName] = useState('');
 
@@ -23,29 +26,21 @@ const UpdateClient = () => {
       .then((response) => response.json())
       .then((result) => {
         // console.log(result);
+        setId(result.id);
         setClientFile(result.clientFile);
         setClientName(result.clientName);
       });
   };
 
-  console.log(clientFile);
-  console.log(clientName);
-
   const updateClientById = async (e) => {
     e.preventDefault();
-    const url = `https://localhost:7183/updateClient/${params.id}`;
 
     const formData = new FormData();
-
+    formData.append('id', id);
     formData.append('clientFile', clientFile);
     formData.append('clientName', clientName);
 
-    await fetch(url, {
-      method: 'PUT',
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result));
+    await updateClient(formData);
     navigate('/clients');
   };
 

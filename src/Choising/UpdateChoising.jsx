@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
-import ChoisingService from '../Service/Service';
+import { useUpdateChoisingMutation } from '../redux/choising.Api';
 
 const UpdateChoising = () => {
+  const [updateChoising] = useUpdateChoisingMutation();
   const params = useParams();
   const navigate = useNavigate();
+  const [id, setId] = useState('');
   const [title, setTitle] = useState('');
   const [titleKZ, setTitleKZ] = useState('');
   const [titleENG, setTitleENG] = useState('');
@@ -21,6 +23,7 @@ const UpdateChoising = () => {
     })
       .then((response) => response.json())
       .then((result) => {
+        setId(result.id);
         setTitle(result.title);
         setTitleKZ(result.titleKZ);
         setTitleENG(result.titleENG);
@@ -30,11 +33,11 @@ const UpdateChoising = () => {
       });
   };
 
-  const updateChoisingById = async (e) => {
+  const handleUpdateChoising = async (e) => {
     e.preventDefault();
-    const url = `https://localhost:7183/updateChoising/${params.id}`;
 
-    const updateChoise = {
+    const updateItemChoise = {
+      id,
       title,
       titleKZ,
       titleENG,
@@ -43,15 +46,7 @@ const UpdateChoising = () => {
       textENG,
     };
 
-    await fetch(url, {
-      method: 'PUT',
-      body: JSON.stringify(updateChoise),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result));
+    updateChoising(updateItemChoise);
 
     navigate('/choising');
   };
@@ -66,7 +61,7 @@ const UpdateChoising = () => {
         <h1>Загрузка</h1>
       ) : (
         <div className="container">
-          <Form style={{ marginTop: 100 }} onSubmit={updateChoisingById}>
+          <Form style={{ marginTop: 100 }} onSubmit={handleUpdateChoising}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Заголовок</Form.Label>
               <Form.Control

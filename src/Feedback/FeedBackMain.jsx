@@ -10,20 +10,11 @@ import {
 import { useEffect, useState } from 'react';
 import Feedback from './Feedback.';
 import feedback from '../img/feedback.png';
+import { useGetFeedbackQuery } from '../redux/feedback.Api';
 
 const FeedBackMain = () => {
-  const [feedbacks, setFeedback] = useState([]);
-  useEffect(() => {
-    const url = 'https://localhost:7183/feedbackGet';
+  const { data: feedbacks = [] } = useGetFeedbackQuery();
 
-    fetch(url, {
-      method: 'GET',
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        setFeedback(result);
-      });
-  }, []);
   return (
     <section className="section__feedback">
       <div className="container">

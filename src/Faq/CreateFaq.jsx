@@ -1,52 +1,46 @@
 import { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useInitialState } from '../hooks/useInitialState';
+import { useAddFaqMutation } from '../redux/faq.Api';
 
 const CreateFaq = () => {
+  const [addFaq] = useAddFaqMutation();
   const navigate = useNavigate();
-  const [question, setQuestion] = useState('');
-  const [questionKZ, setQuestionKZ] = useState('');
-  const [questionENG, setQuestionENG] = useState('');
-  const [answer, setAnswer] = useState('');
-  const [answerKZ, setAnswerKZ] = useState('');
-  const [answerENG, setAnswerENG] = useState('');
-  const toggleCreateFaq = (e) => {
+
+  const question = useInitialState('');
+  const questionKZ = useInitialState('');
+  const questionENG = useInitialState('');
+  const answer = useInitialState('');
+  const answerKZ = useInitialState('');
+  const answerENG = useInitialState('');
+
+  const handleAddFaq = async (e) => {
     e.preventDefault();
 
     const newFaq = {
-      question,
-      questionKZ,
-      questionENG,
-      answer,
-      answerKZ,
-      answerENG,
+      question: question.value,
+      questionKZ: questionKZ.value,
+      questionENG: questionENG.value,
+      answer: answer.value,
+      answerKZ: answerKZ.value,
+      answerENG: answerENG.value,
     };
 
-    const url = 'https://localhost:7183/createFaq';
-
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newFaq),
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result));
-
+    await addFaq(newFaq);
     navigate('/faq');
   };
 
   return (
     <div className="container">
-      <Form onSubmit={toggleCreateFaq} style={{ marginTop: 100 }}>
+      <Form onSubmit={handleAddFaq} style={{ marginTop: 100 }}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Вопросы</Form.Label>
           <Form.Control
             type="text"
             placeholder="вопрос..."
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
+            value={question.value}
+            onChange={question.onChange}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -54,8 +48,8 @@ const CreateFaq = () => {
           <Form.Control
             type="text"
             placeholder="вопрос...(казахский)"
-            value={questionKZ}
-            onChange={(e) => setQuestionKZ(e.target.value)}
+            value={questionKZ.value}
+            onChange={questionKZ.onChange}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -63,8 +57,8 @@ const CreateFaq = () => {
           <Form.Control
             type="text"
             placeholder="вопрос...(английский)"
-            value={questionENG}
-            onChange={(e) => setQuestionENG(e.target.value)}
+            value={questionENG.value}
+            onChange={questionENG.onChange}
           />
           <hr />
         </Form.Group>
@@ -73,8 +67,8 @@ const CreateFaq = () => {
           <Form.Control
             as="textarea"
             rows={3}
-            value={answer}
-            onChange={(e) => setAnswer(e.target.value)}
+            value={answer.value}
+            onChange={answer.onChange}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
@@ -82,8 +76,8 @@ const CreateFaq = () => {
           <Form.Control
             as="textarea"
             rows={3}
-            value={answerKZ}
-            onChange={(e) => setAnswerKZ(e.target.value)}
+            value={answerKZ.value}
+            onChange={answerKZ.onChange}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
@@ -91,8 +85,8 @@ const CreateFaq = () => {
           <Form.Control
             as="textarea"
             rows={3}
-            value={answerENG}
-            onChange={(e) => setAnswerENG(e.target.value)}
+            value={answerENG.value}
+            onChange={answerENG.onChange}
           />
         </Form.Group>
         <Button type="submit" variant="success">

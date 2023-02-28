@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useUpdateFaqMutation } from '../redux/faq.Api';
 
 const UpdateFaq = () => {
+  const [updateFaq] = useUpdateFaqMutation();
   const params = useParams();
   const navigate = useNavigate();
   const [question, setQuestion] = useState('');
@@ -11,6 +13,7 @@ const UpdateFaq = () => {
   const [answer, setAnswer] = useState('');
   const [answerKZ, setAnswerKZ] = useState('');
   const [answerENG, setAnswerENG] = useState('');
+  const [id, setId] = useState('');
 
   const getFaqId = async () => {
     const url = `https://localhost:7183/getFaq/${params.id}`;
@@ -20,6 +23,7 @@ const UpdateFaq = () => {
     })
       .then((response) => response.json())
       .then((result) => {
+        setId(result.id);
         setQuestion(result.question);
         setQuestionKZ(result.questionKZ);
         setQuestionENG(result.questionENG);
@@ -29,11 +33,11 @@ const UpdateFaq = () => {
       });
   };
 
-  const updateFaqId = async (e) => {
+  const handleUpdateFaq = async (e) => {
     e.preventDefault();
-    const url = `https://localhost:7183/updateFaq/${params.id}`;
 
-    const updateFaq = {
+    const updateNewFaq = {
+      id,
       question,
       questionKZ,
       questionENG,
@@ -42,15 +46,7 @@ const UpdateFaq = () => {
       answerENG,
     };
 
-    await fetch(url, {
-      method: 'PUT',
-      body: JSON.stringify(updateFaq),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result));
+    await updateFaq(updateNewFaq);
 
     navigate('/faq');
   };
@@ -62,7 +58,7 @@ const UpdateFaq = () => {
   return (
     <>
       <div className="container">
-        <Form style={{ marginTop: 100 }} onSubmit={updateFaqId}>
+        <Form style={{ marginTop: 100 }} onSubmit={handleUpdateFaq}>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Вопрос</Form.Label>
             <Form.Control

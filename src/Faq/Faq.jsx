@@ -2,22 +2,16 @@ import { TableCell, TableRow } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useDeleteProductMutation } from '../redux/faq.Api';
 
-const Faq = (props) => {
-  const { question, answer, id } = props;
+const Faq = ({ question, answer, id }) => {
+  const [deleteFaq] = useDeleteProductMutation();
+
   const navigate = useNavigate();
   const params = useParams();
 
-  const deleteFaqById = () => {
-    const url = `https://localhost:7183/deleteFaq/${id}`;
-    fetch(url, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result));
+  const handleDeleteFaq = async (id) => {
+    deleteFaq(id);
   };
 
   return (
@@ -36,7 +30,7 @@ const Faq = (props) => {
                 `Вы действительно хотите удалить плагин "${answer}" ?`
               )
             )
-              deleteFaqById();
+              handleDeleteFaq(id);
           }}
           style={{ marginLeft: 20 }}
           variant="danger"

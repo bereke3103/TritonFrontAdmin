@@ -9,23 +9,13 @@ import {
 import React, { useEffect, useState } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { useGetClientQuery } from '../redux/client.Api';
 import Client from './Client';
 
 const ClientMain = () => {
-  const [client, setClient] = useState([]);
+  const { data: client = [] } = useGetClientQuery();
+
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const url = 'https://localhost:7183/getClient';
-
-    fetch(url, {
-      method: 'GET',
-    })
-      .then((response) => response.json())
-      .then((result) => setClient(result));
-  }, []);
-
-  console.log(client);
 
   return (
     <div style={{ marginTop: 140 }} className="container">
