@@ -96,7 +96,7 @@ const Login = () => {
           />
         </Form.Group>
 
-        <Button type="submit" variant="primary" type="submit">
+        <Button type="submit" variant="primary">
           Авторизоваться
         </Button>
       </Form>
