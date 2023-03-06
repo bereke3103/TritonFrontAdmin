@@ -16,7 +16,7 @@ const CardOfChoisingMain = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const url = 'https://localhost:7183/getCard';
+    const url = 'http://46.101.153.165/getCard';
 
     fetch(url, {
       method: 'GET',

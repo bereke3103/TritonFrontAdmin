@@ -16,7 +16,7 @@ const UpdateChoising = () => {
   const [textENG, setTextENG] = useState('');
 
   const getChoisingById = async () => {
-    const url = `https://localhost:7183/getChoising/${params.id}`;
+    const url = `http://46.101.153.165/getChoising/${params.id}`;
 
     await fetch(url, {
       method: 'GET',

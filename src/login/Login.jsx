@@ -15,7 +15,7 @@ const Login = () => {
       password,
     };
 
-    const url = 'https://localhost:7183/login';
+    const url = 'http://46.101.153.165/login';
 
     fetch(url, {
       method: 'POST',

@@ -4,7 +4,7 @@ export const faqApi = createApi({
   reducerPath: 'faqApi',
   tagTypes: ['faqs'],
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://localhost:7183/',
+    baseUrl: 'http://46.101.153.165/',
   }),
   endpoints: (build) => ({
     getFaq: build.query({

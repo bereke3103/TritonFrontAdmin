@@ -40,7 +40,7 @@ const UpdatePlugin = () => {
 
   const [innerPlugin, setInnferPlugin] = useState([]);
   useEffect(() => {
-    const url = 'https://localhost:7183/getPluginInformations';
+    const url = 'http://46.101.153.165/getPluginInformations';
 
     fetch(url, {
       method: 'GET',

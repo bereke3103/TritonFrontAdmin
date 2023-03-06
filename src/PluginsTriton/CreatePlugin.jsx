@@ -48,7 +48,7 @@ const CreatePlugin = () => {
     formData.append('pluginFile', pluginFile);
     formData.append('pluginName', pluginName);
 
-    const url = 'https://localhost:7183/createPlugin';
+    const url = 'http://46.101.153.165/createPlugin';
 
     await fetch(url, {
       method: 'POST',

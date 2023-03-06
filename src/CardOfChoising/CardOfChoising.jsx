@@ -6,9 +6,10 @@ import { useNavigate } from 'react-router-dom';
 const CardOfChoising = ({ id, title, description, nameFile }) => {
   const navigate = useNavigate();
   //   console.log(props);
+  // https:///
 
   const deleteCardByID = () => {
-    const url = `https://localhost:7183/deleteCard/${id}`;
+    const url = `http://46.101.153.165/deleteCard/${id}`;
 
     fetch(url, {
       method: 'DELETE',

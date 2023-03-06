@@ -18,7 +18,7 @@ const UpdateClient = () => {
   };
 
   const getClientId = async () => {
-    const url = `https://localhost:7183/getClient/${params.id}`;
+    const url = `http://46.101.153.165/getClient/${params.id}`;
 
     await fetch(url, {
       method: 'GET',

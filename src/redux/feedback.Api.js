@@ -4,7 +4,7 @@ export const feedbackApi = createApi({
   reducerPath: 'feedbackApi',
   tagTypes: ['feedback'],
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://localhost:7183/',
+    baseUrl: 'http://46.101.153.165/',
   }),
   endpoints: (build) => ({
     getFeedback: build.query({

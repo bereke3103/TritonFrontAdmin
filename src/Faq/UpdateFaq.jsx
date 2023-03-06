@@ -16,7 +16,7 @@ const UpdateFaq = () => {
   const [id, setId] = useState('');
 
   const getFaqId = async () => {
-    const url = `https://localhost:7183/getFaq/${params.id}`;
+    const url = `http://46.101.153.165/getFaq/${params.id}`;
 
     await fetch(url, {
       method: 'GET',

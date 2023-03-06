@@ -58,7 +58,7 @@ const UpdateCardOfChoising = () => {
     formData.append('imageFile', imageFile);
     formData.append('nameFile', nameFile);
 
-    const url = `https://localhost:7183/updateCard/${params.id}`;
+    const url = `http://46.101.153.165/updateCard/${params.id}`;
 
     await fetch(url, {
       method: 'PUT',
