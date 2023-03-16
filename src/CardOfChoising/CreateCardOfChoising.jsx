@@ -37,7 +37,7 @@ const CreateCardOfChoising = () => {
     formData.append('imageFile', imageFile);
     formData.append('nameFile', nameFile);
 
-    const url = 'http://46.101.153.165/createCard';
+    const url = 'http://165.227.162.166/createCard';
 
     await fetch(url, {
       method: 'POST',

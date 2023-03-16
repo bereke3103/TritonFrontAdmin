@@ -8,7 +8,7 @@ const Plugin = (props) => {
   const navigate = useNavigate();
 
   const deletePluginById = () => {
-    const url = `http://46.101.153.165/deletePlugin/${id}`;
+    const url = `http://165.227.162.166/deletePlugin/${id}`;
 
     fetch(url, {
       method: 'DELETE',

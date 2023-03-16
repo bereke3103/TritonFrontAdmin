@@ -15,7 +15,7 @@ const Login = () => {
       password,
     };
 
-    const url = 'http://46.101.153.165/login';
+    const url = 'http://165.227.162.166/login';
 
     fetch(url, {
       method: 'POST',

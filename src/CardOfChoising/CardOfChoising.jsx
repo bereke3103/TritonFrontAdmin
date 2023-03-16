@@ -9,7 +9,7 @@ const CardOfChoising = ({ id, title, description, nameFile }) => {
   // https:///
 
   const deleteCardByID = () => {
-    const url = `http://46.101.153.165/deleteCard/${id}`;
+    const url = `http://165.227.162.166/deleteCard/${id}`;
 
     fetch(url, {
       method: 'DELETE',
@@ -29,7 +29,7 @@ const CardOfChoising = ({ id, title, description, nameFile }) => {
         <img
           style={{ width: '150px', height: '150px', objectFit: 'cover' }}
           align="left"
-          src={`https://${nameFile}`}
+          src={nameFile}
           alt="Картинки"
         />
       </TableCell>

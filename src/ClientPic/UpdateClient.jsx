@@ -18,7 +18,7 @@ const UpdateClient = () => {
   };
 
   const getClientId = async () => {
-    const url = `http://46.101.153.165/getClient/${params.id}`;
+    const url = `http://165.227.162.166/getClient/${params.id}`;
 
     await fetch(url, {
       method: 'GET',
@@ -53,8 +53,8 @@ const UpdateClient = () => {
       <Form onSubmit={updateClientById} style={{ marginTop: 100 }}>
         <img
           style={{ width: '350px', height: '350px', objectFit: 'cover' }}
-          src={`https://${clientName}`}
-          alt=""
+          src={clientName}
+          alt="pic"
         />
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Обновите картинку</Form.Label>

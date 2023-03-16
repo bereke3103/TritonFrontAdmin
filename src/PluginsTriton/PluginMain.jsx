@@ -16,7 +16,7 @@ const PluginMain = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const url = 'http://46.101.153.165/getPlugin';
+    const url = 'http://165.227.162.166/getPlugin';
 
     fetch(url, {
       method: 'GET',

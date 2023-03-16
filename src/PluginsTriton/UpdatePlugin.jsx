@@ -40,7 +40,7 @@ const UpdatePlugin = () => {
 
   const [innerPlugin, setInnferPlugin] = useState([]);
   useEffect(() => {
-    const url = 'http://46.101.153.165/getPluginInformations';
+    const url = 'http://165.227.162.166/getPluginInformations';
 
     fetch(url, {
       method: 'GET',
@@ -52,7 +52,7 @@ const UpdatePlugin = () => {
   }, [innerPlugin]);
 
   const getPluginId = async () => {
-    const url = `https://localhost:7183/getPlugin/${params.id}`;
+    const url = `http://165.227.162.166/getPlugin/${params.id}`;
 
     await fetch(url, {
       method: 'GET',
@@ -73,7 +73,7 @@ const UpdatePlugin = () => {
 
   const updatePluginById = async (e) => {
     e.preventDefault();
-    const url = `https://localhost:7183/updatePlugin/${params.id}`;
+    const url = `http://165.227.162.166/updatePlugin/${params.id}`;
 
     const formData = new FormData();
 
@@ -111,7 +111,7 @@ const UpdatePlugin = () => {
         <Form onSubmit={updatePluginById} style={{ marginTop: 100 }}>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <img
-              src={`https://${nameFile}`}
+              src={nameFile}
               style={{ width: '300px', height: '300px', objectFit: 'cover' }}
               alt=""
             />
@@ -263,7 +263,7 @@ const UpdatePlugin = () => {
                 {innerPlugin.map((i) => {
                   if (i.pluginModelId == params.id) {
                     const deleteMoreInfoById = () => {
-                      const url = `https://localhost:7183/deletePluginInformations/${i.id}`;
+                      const url = `http://165.227.162.166/deletePluginInformations/${i.id}`;
 
                       fetch(url, {
                         method: 'DELETE',

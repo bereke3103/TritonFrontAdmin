@@ -48,7 +48,7 @@ const CreatePlugin = () => {
     formData.append('pluginFile', pluginFile);
     formData.append('pluginName', pluginName);
 
-    const url = 'http://46.101.153.165/createPlugin';
+    const url = 'http://165.227.162.166/createPlugin';
 
     await fetch(url, {
       method: 'POST',

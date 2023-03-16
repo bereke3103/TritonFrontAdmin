@@ -4,7 +4,7 @@ export const choisingApi = createApi({
   reducerPath: 'choisingApi',
   tagTypes: ['choising'],
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://46.101.153.165/',
+    baseUrl: 'http://165.227.162.166/',
   }),
   endpoints: (build) => ({
     getChoising: build.query({

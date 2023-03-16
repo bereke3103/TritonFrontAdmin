@@ -16,14 +16,14 @@ const UpdateCardOfChoising = () => {
   const params = useParams();
 
   const getCardId = async () => {
-    const url = `https://localhost:7183/getCard/${params.id}`;
+    const url = `http://165.227.162.166/getCard/${params.id}`;
 
     await fetch(url, {
       method: 'GET',
     })
       .then((response) => response.json())
       .then((result) => {
-        // console.log(result);
+        console.log(result);
         seTitle(result.title);
         setTitleKZ(result.titleKZ);
         setTitleENG(result.titleENG);
@@ -58,7 +58,7 @@ const UpdateCardOfChoising = () => {
     formData.append('imageFile', imageFile);
     formData.append('nameFile', nameFile);
 
-    const url = `http://46.101.153.165/updateCard/${params.id}`;
+    const url = `http://165.227.162.166/updateCard/${params.id}`;
 
     await fetch(url, {
       method: 'PUT',
@@ -72,14 +72,14 @@ const UpdateCardOfChoising = () => {
       })
       .then((result) => console.log(result));
   };
-
+  console.log(nameFile);
   return (
     <>
       <div className="container">
         <Form onSubmit={updateNewCard} style={{ marginTop: 100 }}>
           <img
             style={{ width: '350px', height: '350px', objectFit: 'cover' }}
-            src={`https://${nameFile}`}
+            src={nameFile}
             alt=""
           />
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">

@@ -18,7 +18,7 @@ const Client = ({ id, clientName }) => {
         <img
           style={{ width: '250px', height: '250px', objectFit: 'cover' }}
           align="left"
-          src={`https://${clientName}`}
+          src={clientName}
           alt="Картинки"
         />
       </TableCell>
